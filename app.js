@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express()
 const PORT = 3500
-
+   
 const todo_item = require('./routes/todo_items')
 
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+
 app.get('/', (request, response) => {
-    response.send("Working")
+    response.send("Working    👋")
 });
 
 app.use('/api/v1/todo_items', todo_item)

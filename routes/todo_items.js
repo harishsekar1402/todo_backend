@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const {getAllToDoItems} = require('../controls/todo_items')
-router.get("/",getAllToDoItems)
-// , (request, response) => {
-//     response.send('List of the items')
-// 
-// });
+const {getAllToDoItems,createNewToDoItem} = require('../controls/todo_items')
+
+
+router.route('/').get(getAllToDoItems).post(createNewToDoItem)
+
 module.exports = router;
